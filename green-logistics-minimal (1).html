@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Logistics — Global Sustainable Freight</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:   #1a7a4a;
+  --green-d: #0e4f2f;
+  --teal:    #0d9488;
+  --sky:     #0ea5e9;
+  --amber:   #f59e0b;
+  --indigo:  #6366f1;
+  --rose:    #e11d48;
+  --lime:    #84cc16;
+  --ink:     #0c1a12;
+  --muted:   #4b6358;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:#f0faf4;color:var(--ink);font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;background:var(--green-d);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:.7rem;}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--lime);flex-shrink:0;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:.83rem;font-weight:400;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{font-size:.83rem;font-weight:600;background:var(--lime);color:var(--ink);padding:.55rem 1.5rem;border-radius:100px;text-decoration:none;transition:all .2s;}
+.nav-cta:hover{background:#fff;transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:5rem 0 0;background:linear-gradient(145deg,#0a3d22 0%,#1a7a4a 55%,#0d9488 100%);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 70% 40%,rgba(132,204,22,0.12) 0%,transparent 65%);pointer-events:none;}
+.hero-text{padding:4rem 3rem 4rem 4rem;position:relative;z-index:1;}
+.hero-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+.hero-label::before{content:'';width:24px;height:1px;background:var(--lime);}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:700;line-height:.97;letter-spacing:-.03em;color:#fff;margin-bottom:1.5rem;}
+h1 em{font-style:italic;font-weight:300;color:var(--lime);}
+.hero-desc{font-size:.98rem;color:rgba(255,255,255,0.65);line-height:1.75;max-width:440px;margin-bottom:2.5rem;}
+.hero-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--lime);color:var(--ink);padding:.9rem 2rem;border-radius:100px;font-weight:600;font-size:.92rem;text-decoration:none;transition:all .25s;}
+.hero-cta:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.hero-img{position:relative;height:100%;min-height:580px;}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.5;display:block;}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,61,34,0.85) 0%,rgba(10,61,34,0.1) 100%);}
+.hero-stats{grid-column:span 2;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(0,0,0,0.28);backdrop-filter:blur(12px);}
+.h-stat{padding:1.8rem 2rem;border-right:1px solid rgba(255,255,255,0.08);text-align:center;}
+.h-stat:last-child{border-right:none;}
+.h-stat-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--lime);line-height:1;margin-bottom:.3rem;}
+.h-stat-lbl{font-size:.7rem;color:rgba(255,255,255,0.45);letter-spacing:.06em;text-transform:uppercase;}
+
+/* ABOUT */
+.about-strip{display:grid;grid-template-columns:1fr 1fr;min-height:480px;}
+.about-img{position:relative;overflow:hidden;}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.about-img:hover img{transform:scale(1.04);}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,79,47,0.5),transparent);}
+.about-content{background:#fff;padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.section-tag{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem;}
+.section-tag::before{content:'';width:18px;height:2px;background:var(--green);border-radius:2px;}
+h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-.025em;color:var(--ink);}
+.about-content h2{margin-bottom:1.2rem;}
+.about-content p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;}
+.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;}
+.tag{font-size:.72rem;font-weight:500;padding:.4rem .9rem;border-radius:100px;}
+.tag-green{background:#dcfce7;color:#166534;}
+.tag-blue{background:#e0f2fe;color:#0369a1;}
+.tag-amber{background:#fef3c7;color:#92400e;}
+
+/* SERVICES */
+.services{padding:6rem 3rem;background:#fff;}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3rem;gap:2rem;}
+.section-note{font-size:.85rem;color:var(--muted);max-width:320px;line-height:1.6;text-align:right;}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.svc-card{border-radius:16px;padding:2rem 1.8rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:default;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.13);}
+.svc-card:nth-child(1){background:linear-gradient(145deg,#0e4f2f,#1a7a4a);}
+.svc-card:nth-child(2){background:linear-gradient(145deg,#0369a1,#0ea5e9);}
+.svc-card:nth-child(3){background:linear-gradient(145deg,#b45309,#f59e0b);}
+.svc-card:nth-child(4){background:linear-gradient(145deg,#5b21b6,#8b5cf6);}
+.svc-card:nth-child(5){background:linear-gradient(145deg,#0f766e,#0d9488);}
+.svc-card:nth-child(6){background:linear-gradient(145deg,#9f1239,#e11d48);}
+.svc-card:nth-child(7){background:linear-gradient(145deg,#92400e,#d97706);grid-column:span 2;}
+.svc-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block;}
+.svc-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
+.svc-tag{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:.9rem;display:block;}
+.svc-desc{font-size:.82rem;color:rgba(255,255,255,0.78);line-height:1.65;}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:4px;}
+.gallery-item{overflow:hidden;position:relative;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-item:nth-child(1){grid-row:span 2;}
+.gallery-label{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.4rem;background:linear-gradient(transparent,rgba(0,0,0,0.65));color:#fff;font-size:.8rem;font-weight:500;}
+
+/* IMPACT */
+.impact{padding:6rem 3rem;background:linear-gradient(135deg,#ecfdf5 0%,#f0fdfa 50%,#eff6ff 100%);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.impact-left h2{margin-bottom:1.2rem;color:var(--green-d);}
+.impact-left p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;max-width:420px;}
+.impact-right-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);}
+.impact-right-img img{width:100%;height:340px;object-fit:cover;display:block;}
+.impact-nums{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;}
+.i-card{background:#fff;border-radius:14px;padding:1.6rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);border-top:4px solid;transition:transform .2s;}
+.i-card:hover{transform:translateY(-3px);}
+.i-card:nth-child(1){border-color:var(--green);}
+.i-card:nth-child(2){border-color:var(--sky);}
+.i-card:nth-child(3){border-color:var(--teal);}
+.i-card:nth-child(4){border-color:var(--amber);}
+.i-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:.4rem;}
+.i-card:nth-child(1) .i-num{color:var(--green);}
+.i-card:nth-child(2) .i-num{color:var(--sky);}
+.i-card:nth-child(3) .i-num{color:var(--teal);}
+.i-card:nth-child(4) .i-num{color:var(--amber);}
+.i-lbl{font-size:.78rem;color:var(--muted);line-height:1.5;}
+
+/* WHY US */
+.why{padding:6rem 3rem;background:#fff;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.why-card{border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:transform .25s,box-shadow .25s;}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.12);}
+.why-card-img{height:200px;overflow:hidden;}
+.why-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.why-card:hover .why-card-img img{transform:scale(1.06);}
+.why-card-body{padding:1.6rem;background:#fff;}
+.why-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
+.why-card-body h4{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.5rem;}
+.why-card-body p{font-size:.82rem;color:var(--muted);line-height:1.65;}
+
+/* COVERAGE */
+.coverage{padding:6rem 3rem;background:var(--green-d);}
+.coverage .section-head h2{color:#fff;}
+.coverage .section-note{color:rgba(255,255,255,0.45);}
+.regions-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3rem;}
+.region{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.8rem 1.4rem;transition:all .25s;}
+.region:hover{background:rgba(132,204,22,0.1);border-color:rgba(132,204,22,0.35);transform:translateY(-4px);}
+.r-flag{font-size:1.8rem;margin-bottom:.8rem;display:block;}
+.r-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.5rem;}
+.r-detail{font-size:.75rem;color:rgba(255,255,255,0.45);line-height:1.7;}
+
+/* PROCESS */
+.process{padding:6rem 3rem;background:linear-gradient(135deg,#f0faf4,#e0f2fe);}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem;position:relative;}
+.process-steps::before{content:'';position:absolute;top:28px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--green),var(--teal),var(--sky));border-radius:2px;}
+.p-step{text-align:center;position:relative;padding-top:.5rem;}
+.p-num{width:56px;height:56px;border-radius:50%;font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;display:grid;place-items:center;margin:0 auto 1.4rem;position:relative;z-index:1;transition:all .3s;}
+.p-step:nth-child(1) .p-num{background:var(--green);color:#fff;}
+.p-step:nth-child(2) .p-num{background:var(--teal);color:#fff;}
+.p-step:nth-child(3) .p-num{background:var(--sky);color:#fff;}
+.p-step:nth-child(4) .p-num{background:var(--lime);color:var(--ink);}
+.p-step:hover .p-num{transform:scale(1.1);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.p-step h4{font-family:'Fraunces',serif;font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:.5rem;}
+.p-step p{font-size:.8rem;color:var(--muted);line-height:1.65;}
+
+/* TESTIMONIALS */
+.testimonials{padding:6rem 3rem;background:#fff;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.testi{border-radius:16px;padding:2rem;border:1px solid rgba(0,0,0,0.07);transition:all .3s;}
+.testi:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.08);}
+.testi:nth-child(1){background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#bbf7d0;}
+.testi:nth-child(2){background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-color:#bae6fd;}
+.testi:nth-child(3){background:linear-gradient(135deg,#fdf4ff,#ede9fe);border-color:#ddd6fe;}
+.testi-q{font-size:2.5rem;font-family:Georgia,serif;line-height:.8;margin-bottom:1rem;}
+.testi:nth-child(1) .testi-q{color:var(--green);}
+.testi:nth-child(2) .testi-q{color:var(--sky);}
+.testi:nth-child(3) .testi-q{color:var(--indigo);}
+.testi p{font-size:.85rem;color:#374151;line-height:1.75;margin-bottom:1.5rem;font-style:italic;}
+.testi-person{display:flex;align-items:center;gap:.8rem;}
+.testi-av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0;}
+.testi:nth-child(1) .testi-av{background:var(--green);}
+.testi:nth-child(2) .testi-av{background:var(--sky);}
+.testi:nth-child(3) .testi-av{background:var(--indigo);}
+.testi-name{font-weight:600;font-size:.85rem;color:var(--ink);}
+.testi-role{font-size:.72rem;color:var(--muted);}
+
+/* CONTACT */
+.contact{padding:6rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;background:linear-gradient(135deg,#ecfdf5,#fff);}
+.contact-left h2{margin-bottom:1rem;}
+.contact-left>p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;}
+.offices{display:flex;flex-direction:column;gap:1rem;}
+.office{padding:1.2rem 1.5rem;border-radius:10px;border-left:4px solid;}
+.offices .office:nth-child(1){border-color:var(--green);background:#f0faf4;}
+.offices .office:nth-child(2){border-color:var(--teal);background:#f0fdfd;}
+.office strong{display:block;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:.3rem;letter-spacing:.08em;text-transform:uppercase;}
+.office span{font-size:.85rem;color:var(--ink);font-weight:400;}
+.contact-email{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--green);text-decoration:none;display:inline-block;margin-top:.2rem;transition:color .2s;}
+.contact-email:hover{color:var(--teal);}
+.contact-right{display:flex;flex-direction:column;gap:1rem;}
+.office-r{padding:1.2rem 1.5rem;border-radius:10px;border-left:4px solid;}
+.office-r:nth-child(1){border-color:var(--sky);background:#f0f9ff;}
+.office-r:nth-child(2){border-color:var(--indigo);background:#f5f3ff;}
+.office-r:nth-child(3){border-color:var(--amber);background:#fffbeb;}
+.office-r:nth-child(4){border-color:var(--rose);background:#fff1f2;}
+.office-r strong{display:block;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:.3rem;letter-spacing:.08em;text-transform:uppercase;}
+.office-r span{font-size:.85rem;color:var(--ink);font-weight:400;}
+
+/* FOOTER */
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--ink);}
+.footer-logo{font-family:'Fraunces',serif;font-weight:700;font-size:.95rem;color:#fff;display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+footer p{font-size:.75rem;color:rgba(255,255,255,0.35);}
+.footer-links{display:flex;gap:2rem;list-style:none;}
+.footer-links a{font-size:.75rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--lime);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:5rem 0 0;}
+  .hero-img{display:none;}
+  .hero-text{padding:3rem 1.5rem 2rem;}
+  .hero-stats{grid-column:1;grid-template-columns:1fr 1fr;}
+  .about-strip{grid-template-columns:1fr;}
+  .about-img{height:260px;}
+  .about-content{padding:3rem 1.5rem;}
+  .services,.why,.testimonials,.coverage,.process{padding:4rem 1.5rem;}
+  .impact{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .svc-card:nth-child(7){grid-column:span 2;}
+  .section-head{flex-direction:column;}
+  .section-note{text-align:left;}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;}
+  .gallery-item:nth-child(1){grid-row:span 1;}
+  .gallery-item:nth-child(4),.gallery-item:nth-child(5){display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-steps::before{display:none;}
+  .testi-grid{grid-template-columns:1fr;}
+  .contact{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.5rem;}
+  .regions-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;align-items:flex-start;padding:1.5rem;}
+  .footer-links{flex-wrap:wrap;gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo"><div class="logo-dot"></div>Green Logistics</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#impact">Sustainability</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:greenlogistics010@gmail.com" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-label">Global Sustainable Freight</div>
+    <h1>Moving cargo.<br><em>Protecting<br>the planet.</em></h1>
+    <p class="hero-desc">We connect businesses to every corner of the globe through smarter routes, cleaner fleets, and a commitment to carbon-neutral supply chains — built from Delhi, reaching the world.</p>
+    <a href="mailto:greenlogistics010@gmail.com" class="hero-cta">
+      Get a Free Quote
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt="Global cargo shipping port">
+  </div>
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-stat-num">25+</div>
+      <div class="h-stat-lbl">Countries Served</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">12K+</div>
+      <div class="h-stat-lbl">Shipments Delivered</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">30%</div>
+      <div class="h-stat-lbl">Lower Emissions</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">99%</div>
+      <div class="h-stat-lbl">On-Time Rate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt="Logistics trucks on highway">
+  </div>
+  <div class="about-content reveal">
+    <p class="section-tag">Who We Are</p>
+    <h2>India's green freight partner for the world.</h2>
+    <p>Founded in Delhi, Green Logistics was built on a simple belief — that moving goods across the world should not cost the earth. We combine technology-driven route optimisation with a clean fleet to deliver cargo efficiently and responsibly.</p>
+    <p>From our headquarters at Pearls Omaxe Tower, NSP, Delhi, we manage cross-border shipments across Asia, Europe, the Middle East, and the Americas — with every shipment tracked, documented, and carbon-accounted.</p>
+    <div class="about-tags">
+      <span class="tag tag-green">🌿 Eco-Certified Fleet</span>
+      <span class="tag tag-blue">📡 Real-Time Tracking</span>
+      <span class="tag tag-amber">📋 Customs Expertise</span>
+      <span class="tag tag-green">☀️ Solar-Powered Hubs</span>
+      <span class="tag tag-blue">🔒 Insured Cargo</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <div>
+      <p class="section-tag">What We Move</p>
+      <h2>Every Mode. Every Mile.</h2>
+    </div>
+    <p class="section-note">Integrated and sustainably operated end-to-end logistics, tailored to your business.</p>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc-card">
+      <span class="svc-icon">🌊</span>
+      <div class="svc-name">Ocean Freight</div>
+      <span class="svc-tag">FCL · LCL · Reefer</span>
+      <div class="svc-desc">Full and part container loads across major global port pairs, on biofuel-blended vessels with real-time AIS tracking.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">✈️</span>
+      <div class="svc-name">Air Freight</div>
+      <span class="svc-tag">Express · Charter</span>
+      <div class="svc-desc">Express and standard air cargo to key destinations. Sustainable Aviation Fuel offset available on every booking.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🚛</span>
+      <div class="svc-name">Road Freight</div>
+      <span class="svc-tag">FTL · LTL · Cross-Border</span>
+      <div class="svc-desc">Cross-border trucking across Asia and the Middle East using CNG, LNG and EV fleet options.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🚂</span>
+      <div class="svc-name">Rail Freight</div>
+      <span class="svc-tag">Intermodal · Block Trains</span>
+      <div class="svc-desc">India–Europe rail corridors — the most energy-efficient land freight mode available today.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">❄️</span>
+      <div class="svc-name">Cold Chain</div>
+      <span class="svc-tag">Pharma · Food · Biotech</span>
+      <div class="svc-desc">GDP-compliant temperature control from −25°C to +25°C with IoT monitoring and real-time alerts.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🏛️</span>
+      <div class="svc-name">Customs & Trade</div>
+      <span class="svc-tag">Brokerage · Compliance</span>
+      <div class="svc-desc">Expert brokerage and documentation for major jurisdictions with automated HS code classification.</div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🏭</span>
+      <div class="svc-name">Warehousing & Fulfilment</div>
+      <span class="svc-tag">Bonded Storage · Same-Day Pick & Pack</span>
+      <div class="svc-desc">Solar-powered distribution centres with bonded and free-zone storage, same-day fulfilment, and inventory management systems built for scale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery reveal">
+  <div class="gallery-item">
+    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=900&q=80" alt="Container port at sunset">
+    <div class="gallery-label">Global Port Operations</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Air cargo loading">
+    <div class="gallery-label">Air Freight</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80" alt="Warehouse logistics">
+    <div class="gallery-label">Smart Warehousing</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&q=80" alt="Road freight trucks">
+    <div class="gallery-label">Road Freight</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Cold chain solutions">
+    <div class="gallery-label">Cold Chain Solutions</div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<section class="impact" id="impact">
+  <div class="impact-left reveal">
+    <p class="section-tag">Our Planet Promise</p>
+    <h2>Carbon-neutral by 2030.</h2>
+    <p>Sustainability is embedded in every route decision, fleet investment, and supplier contract we make. We don't treat it as a box to tick — it's the foundation of how we operate.</p>
+    <p>Every shipment you book with us includes a verified carbon impact report. Share it with your customers, your board, or your auditors — transparency is part of our service.</p>
+    <div class="impact-nums">
+      <div class="i-card"><div class="i-num">32%</div><div class="i-lbl">Emission reduction vs 2021 baseline</div></div>
+      <div class="i-card"><div class="i-num">80%</div><div class="i-lbl">Renewable energy at our facilities</div></div>
+      <div class="i-card"><div class="i-num">55%</div><div class="i-lbl">Fleet on low-carbon fuels</div></div>
+      <div class="i-card"><div class="i-num">8,200t</div><div class="i-lbl">CO₂ avoided in FY 2024–25</div></div>
+    </div>
+  </div>
+  <div class="impact-right-img reveal">
+    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Wind turbines sustainable energy">
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-head reveal">
+    <div>
+      <p class="section-tag">Why Choose Us</p>
+      <h2>Built Different. Built Greener.</h2>
+    </div>
+    <p class="section-note">Three reasons businesses switch to Green Logistics and never look back.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-card-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" alt="Technology tracking dashboard">
+      </div>
+      <div class="why-card-body">
+        <span class="why-icon">📡</span>
+        <h4>Real-Time Visibility</h4>
+        <p>Track every shipment end-to-end via our web portal or API. Predictive ETAs, customs status updates, and automated milestone alerts keep you always in the loop.</p>
+      </div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-img">
+        <img src="https://images.unsplash.com/photo-1641932972117-b38b8d4c5d2b?w=700&q=80" alt="Green electric truck fleet">
+      </div>
+      <div class="why-card-body">
+        <span class="why-icon">⚡</span>
+        <h4>Clean Fleet</h4>
+        <p>From CNG trucks to electric last-mile vehicles, our fleet is built to reduce your Scope 3 emissions — without compromising speed or reliability.</p>
+      </div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-img">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Expert team meeting">
+      </div>
+      <div class="why-card-body">
+        <span class="why-icon">🧑‍💼</span>
+        <h4>Dedicated Experts</h4>
+        <p>A named account manager handles your shipments, customs queries, and escalations — a real human, not a chatbot, available when it matters most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage" id="coverage">
+  <div class="section-head reveal">
+    <div>
+      <p class="section-tag" style="color:rgba(132,204,22,0.9)">Global Coverage</p>
+      <h2>Every Continent. Every Port.</h2>
+    </div>
+    <p class="section-note">25+ countries, 8 distribution centres, 200+ carrier partners worldwide.</p>
+  </div>
+  <div class="regions-grid reveal">
+    <div class="region">
+      <span class="r-flag">🌏</span>
+      <div class="r-name">Asia Pacific</div>
+      <div class="r-detail">12 countries<br>3 distribution centres</div>
+    </div>
+    <div class="region">
+      <span class="r-flag">🌍</span>
+      <div class="r-name">Europe</div>
+      <div class="r-detail">8 countries<br>2 distribution centres</div>
+    </div>
+    <div class="region">
+      <span class="r-flag">🌎</span>
+      <div class="r-name">Americas</div>
+      <div class="r-detail">3 countries<br>1 distribution centre</div>
+    </div>
+    <div class="region">
+      <span class="r-flag">🌍</span>
+      <div class="r-name">Middle East & Africa</div>
+      <div class="r-detail">6 countries<br>2 distribution centres</div>
+    </div>
+    <div class="region">
+      <span class="r-flag">🏔️</span>
+      <div class="r-name">South Asia</div>
+      <div class="r-detail">4 countries<br>Pan-India coverage</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-head reveal">
+    <div>
+      <p class="section-tag">How It Works</p>
+      <h2>From Quote to Delivery in 4 Steps</h2>
+    </div>
+    <p class="section-note">Simple, transparent, and fully tracked from the moment you reach out.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="p-step">
+      <div class="p-num">01</div>
+      <h4>Request a Quote</h4>
+      <p>Email us your shipment details — origin, destination, cargo type and weight. We respond within 2 hours with a tailored price.</p>
+    </div>
+    <div class="p-step">
+      <div class="p-num">02</div>
+      <h4>Confirm & Document</h4>
+      <p>Our team pre-fills all trade documents — bill of lading, customs declarations, and certificates of origin.</p>
+    </div>
+    <div class="p-step">
+      <div class="p-num">03</div>
+      <h4>Live Tracking</h4>
+      <p>Track your shipment in real-time via our portal. Get automated updates at every milestone, from pickup to final delivery.</p>
+    </div>
+    <div class="p-step">
+      <div class="p-num">04</div>
+      <h4>Green Delivery</h4>
+      <p>Delivered on time with a proof of delivery and verified carbon offset certificate — ready to share with your stakeholders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-head reveal">
+    <div>
+      <p class="section-tag">Client Stories</p>
+      <h2>Trusted by Real Businesses</h2>
+    </div>
+    <p class="section-note">What our clients say about shipping with Green Logistics.</p>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>Switching to Green Logistics was the best supply chain decision we made this year. On-time delivery, zero documentation hassles, and our carbon footprint actually went down.</p>
+      <div class="testi-person">
+        <div class="testi-av">RK</div>
+        <div>
+          <div class="testi-name">Rahul Kumar</div>
+          <div class="testi-role">Head of Supply Chain, NaturaCo Foods</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>The customs brokerage team handled our export to 6 countries flawlessly. We've had zero delays due to documentation in 12 months. Genuinely impressive.</p>
+      <div class="testi-person">
+        <div class="testi-av">SP</div>
+        <div>
+          <div class="testi-name">Sneha Patel</div>
+          <div class="testi-role">COO, AyurVeda Exports Pvt. Ltd.</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>Cold chain reliability was our biggest pain point. Green Logistics' IoT-monitored fleet keeps our pharmaceuticals at perfect temperature. We trust them completely.</p>
+      <div class="testi-person">
+        <div class="testi-av">AS</div>
+        <div>
+          <div class="testi-name">Ananya Sharma</div>
+          <div class="testi-role">VP Logistics, Bharat Pharma Group</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left reveal">
+    <p class="section-tag">Get In Touch</p>
+    <h2>Let's talk.</h2>
+    <p>Whether you're shipping a single pallet or building a multi-country distribution network, we'll design the right sustainable solution for you. Reach out and we'll respond within 2 business hours.</p>
+    <div class="offices">
+      <div class="office">
+        <strong>📍 Head Office</strong>
+        <span>Unit No. FF-12, Pearls Omaxe Tower, NSP, Delhi-34</span>
+      </div>
+      <div class="office">
+        <strong>✉️ Email Us</strong>
+        <a class="contact-email" href="mailto:greenlogistics010@gmail.com">greenlogistics010@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right reveal">
+    <div class="office-r">
+      <strong>🌏 Asia Pacific</strong>
+      <span>One Raffles Place, Singapore 048616</span>
+    </div>
+    <div class="office-r">
+      <strong>🌍 Europe</strong>
+      <span>Weena 210, Rotterdam, Netherlands</span>
+    </div>
+    <div class="office-r">
+      <strong>🌎 Americas</strong>
+      <span>1 World Trade Center, New York, NY 10007</span>
+    </div>
+    <div class="office-r">
+      <strong>🌍 Middle East &amp; Africa</strong>
+      <span>DMCC, Gate Village, Dubai</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo"><div class="logo-dot"></div>Green Logistics</a>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Sustainability Report</a></li>
+  </ul>
+  <p>© 2025 Green Logistics. All rights reserved.</p>
+</footer>
+
+<script>
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 100);
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
